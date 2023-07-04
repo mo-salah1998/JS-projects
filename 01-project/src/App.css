@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 @layer components {
- .color-white {
-  @apply text-blue-50
- }
+    .color-white {
+        @apply text-blue-50
+    }
 
- .themeBtn{
-  @apply w-56 border-2 border-blue-100 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 dark:color-white
- }
+    .themeBtn {
+        @apply mr-2 lg:mr-8 xl:mr-44 place-self-end w-56 border-2 border-blue-100 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-700 dark:color-white
+    }
+
+    .nav > * {
+        @apply basis-full ;
+    }
+
 
 }
 
