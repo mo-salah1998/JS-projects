@@ -8,7 +8,7 @@
     }
 
     .themeBtn {
-        @apply sm:mr-6 lg:mr-8 place-self-end w-32 lg:w-44 border-2 border-blue-100 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-700 dark:color-white
+        @apply sm:mr-6 lg:mr-8 place-self-end w-auto lg:w-16 lg:flex lg:justify-center border-2 border-blue-100 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-700 dark:color-white
     }
 
     .nav > * {
