@@ -8,7 +8,7 @@ app.use("/", async (req, res) => {
     const options = {
         method: 'GET',
         url: 'https://imdb8.p.rapidapi.com/auto-complete',
-        params: {q: 'game of thr'},
+        params: {q: 'prison'},
         headers: {
             'X-RapidAPI-Key': '0647afe6f2mshe92e90f94cf68aap16b84cjsn62450b8d1e95',
             'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
@@ -17,9 +17,13 @@ app.use("/", async (req, res) => {
 
     try {
         const response = await axios.request(options);
-        res.status(200).send(response.data);
+        // desteructuring
+        let {l:film , q:titre } = response.data.d[0] ;
+
+
+        res.send(200,{titre,film});
     } catch (error) {
-        res.status(500).send(error);
+        res.send(500,error);
     }
 })
 app.listen(4000, () => console.log('server started'));
