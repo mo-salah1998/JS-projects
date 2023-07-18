@@ -4,8 +4,8 @@ const app = express();
 const mongoose = require('mongoose');
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://salah:salah123@cluster0.quo6z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, {
+
+const client = new MongoClient(process.env.DATABASE_URL, {
     serverApi: {
         version: ServerApiVersion.v1,
         strict: true,
@@ -27,9 +27,6 @@ async function run() {
 }
 run().catch(console.dir);
 app.use(express.json());
-
-
-
 
 
 app.use("/", async (req, res) => {
