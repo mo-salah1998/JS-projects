@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-
+const cvschema = require('./schema/cvschema.json');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const client = new MongoClient(process.env.DATABASE_URL, {
@@ -46,9 +46,7 @@ app.use("/", async (req, res) => {
         const response = await axios.request(options);
         // desteructuring
         let {l:film , q:titre } = response.data.d[0] ;
-
-
-        res.send(200,{titre,film});
+        res.send(200,cvschema);
     } catch (error) {
         res.send(500,error);
     }
