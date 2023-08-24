@@ -1,10 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const mongoose = require('mongoose');
 const cvschema = require('./schema/cvschema.json');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-
+const indexRouter = require('./routes/index');
 const client = new MongoClient(process.env.DATABASE_URL, {
     serverApi: {
         version: ServerApiVersion.v1,
@@ -27,6 +28,8 @@ async function run() {
 }
 run().catch(console.dir);
 app.use(express.json());
+app.use(cors());
+app.use("/api", indexRouter);
 
 
 app.use("/", async (req, res) => {
