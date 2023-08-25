@@ -5,7 +5,7 @@ let Header = () => {
 
     return (
         <header className="flex sm:flex-nowrap sm:justify-start z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
-            <nav className="max-w-[75rem] w-full mx-auto px-6 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+            <nav className="max-w-[75rem] w-full mx-auto px-6 flex items-center justify-between" aria-label="Global">
                 <div className="flex items-center justify-between">
                     <a className="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white" href="#">
                         <img
@@ -16,9 +16,9 @@ let Header = () => {
                         <h1>AI CV</h1>
                     </a>
                 </div>
-                <div className="flex flex-row items-center mt-5 sm:justify-end sm:mt-0 sm:pl-5">
+                <div className="">
 
-                    <a className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Login</a>
+                    <a className="font-medium text-lg text-white hover:text-gray-400 dark:text-white dark:hover:text-gray-500" href="#">Login</a>
                 </div>
             </nav>
         </header>

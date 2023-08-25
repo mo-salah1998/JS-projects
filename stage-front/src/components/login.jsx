@@ -1,6 +1,6 @@
 import artificialIntelligence from "../assets/artificial-intelligence (2).png";
 
-export default function Login() {
+export default function LogForm() {
     return (
         <>
             <div className="container mx-auto border-2 max-w-lg p-4 my-14  ">

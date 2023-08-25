@@ -9,7 +9,7 @@ export default function Cv() {
     const [file, setFile] = useState({});
     const [languages, setLanguages] = useState([]);
     const [newLanguage, setNewLanguage] = useState('');
-
+    const [upload , setupload] = useState(false);
     const handleUploadClick = (e) => {
         e.preventDefault();
         if (!file) {
@@ -24,10 +24,15 @@ export default function Cv() {
                 'content-length': `${file.size}`, // 👈 Headers need to be a string
             },
         })
+            .then(()=>{ setupload(()=>true)})
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then((data) => {
+                console.log(data)
+            })
+
             .catch((err) => console.error(err));
-        console.log("file sended")
+
+
     };
     const handleLanguageChange = (e) => {
         setNewLanguage(e.target.value);
@@ -48,9 +53,9 @@ export default function Cv() {
     };
 
     let code = () => {
-        if (file) {
+        if (upload) {
             return <>
-                <div className=" ">
+                <div >
                     <div className="border-b border-gray-900/10 pb-12">
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
 
@@ -707,7 +712,7 @@ export default function Cv() {
     return (<div
         className="mx-auto max-w-4xl sm:my-12 py-10 border-2 sm:rounded-2xl lg:px-8 px-2 shadow-[0px_2px_20px_10px_#00000020] ">
         <form>
-            <div className="space-y-12">
+            <div className="space-y-12 ">
                 <div className="col-span-full">
                     <label htmlFor="cover-photo" className="text-base block font-semibold leading-7 text-gray-900">
                         Uplode Your CV Here :
@@ -739,6 +744,13 @@ export default function Cv() {
                             className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Upload
+                        </button>
+                        <button type="button" className="bg-indigo-500 text-white font-semibold text-sm py-2 px-4 rounded-md items-center cursor-not-allowed inline-flex leading-6 shadow shadow-2xl transition duration-150 ease-in-out" disabled>
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M5 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
                         </button>
                     </div>
 
